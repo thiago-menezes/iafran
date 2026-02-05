@@ -89,13 +89,18 @@ Adapte a profundidade conforme a duração:
 Entregue o roteiro completo formatado com blocos visuais claros. No final, inclua:
 
 **NOTAS TÉCNICAS:**
-| Elemento | Especificação |
-|----------|---------------|
-| Duração total | Xs |
-| Enquadramentos sugeridos | X |
-| Iluminação | X |
-| Edição | X |
-| Tom vocal | X |
+- Duração total: Xs
+- Enquadramentos sugeridos: X
+- Iluminação: X
+- Edição: X
+- Tom vocal: X
+
+**LEGENDA DO VÍDEO (UMA ÚNICA LEGENDA PARA O POST):**
+Escreva uma legenda completa e otimizada para o post do vídeo nas redes sociais. A legenda deve:
+- Chamar atenção logo no início
+- Incluir emojis relevantes
+- Ter hashtags estratégicas
+- Incluir call-to-action
 
 **GANCHOS PSICOLÓGICOS UTILIZADOS:**
 Liste os gatilhos mentais presentes no roteiro (escassez, prova social, curiosidade, identificação, autoridade, reciprocidade, etc.)
