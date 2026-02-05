@@ -1,3 +1,24 @@
+@font-face {
+    font-family: 'Figtree';
+    src: url('fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Figtree';
+    src: url('fonts/Figtree-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Young Serif';
+    src: url('fonts/YoungSerif-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Reset e variáveis */
 :root {
     --primary: #914326;
@@ -21,7 +42,7 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Figtree', sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
@@ -34,6 +55,10 @@ body {
 .container {
     max-width: 1200px;
     width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Young Serif', serif;
 }
 
 /* Header */
@@ -334,7 +359,7 @@ body {
 
 .results-content li::after {
     content: 'CLICK PARA COPIAR';
-    font-family: 'Inter', sans-serif;
+    font-family: 'Figtree', sans-serif;
     font-size: 0.7rem;
     font-weight: 700;
     position: absolute;
