@@ -571,6 +571,12 @@ input[type="range"]::-moz-range-thumb:hover {
     flex-shrink: 0;
 }
 
+.roteiros-content .script-line .icon-marker {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    color: var(--primary);
+}
+
 .roteiros-content .script-table {
     width: 100%;
     border-collapse: collapse;

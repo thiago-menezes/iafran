@@ -395,6 +395,28 @@ async function callBackend(userPrompt, creatorContext) {
 async function handleGenerate() {
   if (!validateForm()) return;
 
+  // Salvar perfil automaticamente antes de gerar
+  const tomVozChecked = Array.from(
+    document.querySelectorAll('input[name="tomVoz"]:checked')
+  ).map((cb) => cb.value);
+
+  const cenariosChecked = Array.from(
+    document.querySelectorAll('input[name="cenarios"]:checked')
+  ).map((cb) => cb.value);
+
+  const profile = {
+    nome: profileElements.creatorNome.value.trim(),
+    estado: profileElements.creatorEstado.value,
+    nicho: profileElements.creatorNicho.value,
+    tomVoz: tomVozChecked,
+    expressoes: profileElements.creatorExpressoes.value.trim(),
+    cenarios: cenariosChecked,
+    info: profileElements.creatorInfo.value.trim(),
+  };
+
+  // Salvar silenciosamente (validação já foi feita)
+  localStorage.setItem("creatorProfile", JSON.stringify(profile));
+
   const userPrompt = buildUserPrompt();
   const creatorContext = buildCreatorContext();
 
@@ -431,7 +453,12 @@ function displayResults(content) {
     .replace(/^# (.+)$/gm, "<h2>$1</h2>")
     // Bold
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-    // Emojis e indicações de cena (manter como estão)
+    // Converter marcadores em ícones
+    .replace(/^\[CENA\] (.+)$/gm, '<p class="script-line"><i class="ti ti-movie icon-marker"></i> $1</p>')
+    .replace(/^\[FALA\] (.+)$/gm, '<p class="script-line"><i class="ti ti-message icon-marker"></i> $1</p>')
+    .replace(/^\[TEXTO\] (.+)$/gm, '<p class="script-line"><i class="ti ti-text-plus icon-marker"></i> $1</p>')
+    .replace(/^\[TEMPO\] (.+)$/gm, '<p class="script-line"><i class="ti ti-clock icon-marker"></i> $1</p>')
+    // Manter suporte a emojis antigos (retrocompatibilidade)
     .replace(/^(🎬|🗣️|📍|⏱️) (.+)$/gm, '<p class="script-line"><span class="emoji">$1</span> $2</p>')
     // Blockquotes
     .replace(/^> (.+)$/gm, "<blockquote>$1</blockquote>")

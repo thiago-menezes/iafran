@@ -59,10 +59,12 @@ Tipos de hook disponíveis:
 ## REGRAS DE FORMATAÇÃO DO ROTEIRO
 
 Para cada bloco, inclua SEMPRE:
-- 🎬 Indicação de cena (o que aparece na tela)
-- 🗣️ Fala exata do creator (entre aspas)
-- 📍 Legenda/texto na tela (quando aplicável)
-- ⏱️ Tempo aproximado do bloco
+- [CENA] Indicação de cena (o que aparece na tela)
+- [FALA] Fala exata do creator (entre aspas)
+- [TEXTO] Texto sobreposto na tela do vídeo (quando aplicável - palavras-chave ou frases curtas que aparecem DENTRO do vídeo)
+- [TEMPO] Tempo aproximado do bloco
+
+IMPORTANTE: [TEXTO] NÃO é a legenda do post. É apenas texto que aparece durante o vídeo (overlay).
 
 ## REGRAS DE CONTEÚDO
 
@@ -95,12 +97,17 @@ Entregue o roteiro completo formatado com blocos visuais claros. No final, inclu
 - Edição: X
 - Tom vocal: X
 
-**LEGENDA DO VÍDEO (UMA ÚNICA LEGENDA PARA O POST):**
-Escreva uma legenda completa e otimizada para o post do vídeo nas redes sociais. A legenda deve:
-- Chamar atenção logo no início
-- Incluir emojis relevantes
-- Ter hashtags estratégicas
-- Incluir call-to-action
+**CAPTION DO POST (LEGENDA ÚNICA PARA A POSTAGEM):**
+Escreva UMA ÚNICA caption completa que será publicada como texto da postagem nas redes sociais (Instagram, TikTok, etc). Esta é a legenda que fica ESCRITA abaixo do vídeo, não os textos que aparecem dentro do vídeo.
+
+A caption deve:
+- Ter de 3 a 5 parágrafos
+- Começar com um gancho forte que chama atenção
+- Incluir emojis relevantes distribuídos ao longo do texto
+- Mencionar o produto/marca de forma natural
+- Ter hashtags estratégicas no final (8-15 hashtags relevantes)
+- Incluir call-to-action claro (ex: "link na bio", "salva esse post", "comenta aqui embaixo")
+- Tom de voz alinhado com o perfil do creator
 
 **GANCHOS PSICOLÓGICOS UTILIZADOS:**
 Liste os gatilhos mentais presentes no roteiro (escassez, prova social, curiosidade, identificação, autoridade, reciprocidade, etc.)
