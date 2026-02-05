@@ -63,6 +63,44 @@ export default async function handler(req) {
   }
 
   try {
+    // const authHeader = req.headers.get("Authorization");
+    // if (!authHeader) {
+    //   return new Response(
+    //     JSON.stringify({ error: "Missing Authorization header" }),
+    //     {
+    //       status: 401,
+    //       headers: { "Content-Type": "application/json" },
+    //     },
+    //   );
+    // }
+
+    // const token = authHeader.replace("Bearer ", "");
+
+    // // Validar token na Kiwify
+    // // Usamos o endpoint de sales com limit=1 apenas para verificar se o token é válido e autenticado.
+    // const kiwifyResponse = await fetch(
+    //   "https://public-api.kiwify.com.br/v1/sales?limit=1",
+    //   {
+    //     headers: {
+    //       Authorization: `Bearer ${token}`,
+    //       "x-kiwify-account-id": process.env.KIWIFY_ACCOUNT_ID,
+    //     },
+    //   },
+    // );
+
+    // if (!kiwifyResponse.ok) {
+    //   // Fallback: Se não conseguir validar /viewer, tenta outro endpoint ou retorna erro
+    //   // Dependendo da documentação exata, o endpoint de validação de token pode variar.
+    //   // Assumindo que se a chamada falhar (401), o token é inválido.
+    //   return new Response(
+    //     JSON.stringify({ error: "Invalid or expired token" }),
+    //     {
+    //       status: 401,
+    //       headers: { "Content-Type": "application/json" },
+    //     },
+    //   );
+    // }
+
     const { userPrompt } = await req.json();
 
     if (!process.env.OPENAI_API_KEY) {

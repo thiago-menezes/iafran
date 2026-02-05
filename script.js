@@ -15,12 +15,23 @@ const elements = {
   resultsContainer: document.getElementById("resultsContainer"),
   resultsContent: document.getElementById("resultsContent"),
   errorState: document.getElementById("errorState"),
+  emptyState: document.getElementById("emptyState"),
 };
 
 // Inicialização
 document.addEventListener("DOMContentLoaded", () => {
   setupEventListeners();
+  // Ensure correct initial state
+  resetState();
 });
+
+function resetState() {
+  if (elements.emptyState) elements.emptyState.style.display = "flex";
+  if (elements.loadingState) elements.loadingState.style.display = "none";
+  if (elements.resultsContainer)
+    elements.resultsContainer.style.display = "none";
+  if (elements.errorState) elements.errorState.style.display = "none";
+}
 
 // Event Listeners
 function setupEventListeners() {
@@ -32,7 +43,7 @@ function setupEventListeners() {
     elements.copyAllBtn.addEventListener("click", copyAllHooks);
   }
 
-  // Logout Button
+  // Logout Button if exists
   const logoutBtn = document.getElementById("logoutBtn");
   if (logoutBtn) {
     logoutBtn.addEventListener("click", logout);
@@ -41,8 +52,10 @@ function setupEventListeners() {
   // Copiar gancho individual ao clicar
   if (elements.resultsContent) {
     elements.resultsContent.addEventListener("click", (e) => {
-      if (e.target.tagName === "LI") {
-        copyToClipboard(e.target.textContent);
+      // Handle clicks on LI or children
+      const li = e.target.closest("li");
+      if (li) {
+        copyToClipboard(li.textContent);
         showToast("Gancho copiado!");
       }
     });
@@ -153,7 +166,11 @@ async function handleGenerate() {
 
   // UI States
   elements.generateBtn.disabled = true;
-  elements.loadingState.style.display = "block";
+  elements.generateBtn.innerHTML =
+    '<div class="spinner" style="width: 20px; height: 20px; border-width: 2px; margin: 0; display: inline-block; vertical-align: middle;"></div> Gerando...';
+
+  elements.emptyState.style.display = "none";
+  elements.loadingState.style.display = "flex"; // Flex to center content
   elements.resultsContainer.style.display = "none";
   elements.errorState.style.display = "none";
 
@@ -164,6 +181,7 @@ async function handleGenerate() {
     showError(error.message);
   } finally {
     elements.generateBtn.disabled = false;
+    elements.generateBtn.innerHTML = '<i class="ti ti-wand"></i> Gerar Ganchos';
     elements.loadingState.style.display = "none";
   }
 }
@@ -195,7 +213,9 @@ function displayResults(content) {
 // Copiar todos os ganchos
 function copyAllHooks() {
   const allLis = elements.resultsContent.querySelectorAll("li");
-  const hooks = Array.from(allLis).map((li) => li.textContent.trim());
+  const hooks = Array.from(allLis).map((li) =>
+    li.textContent.trim().replace("CLICK PARA COPIAR", ""),
+  );
 
   const text = hooks.join("\n\n");
   copyToClipboard(text);
@@ -204,7 +224,7 @@ function copyAllHooks() {
 
 // Copiar para clipboard
 function copyToClipboard(text) {
-  const cleanText = text.replace(/📋/g, "").trim();
+  const cleanText = text.replace(/CLICK PARA COPIAR/g, "").trim();
   navigator.clipboard.writeText(cleanText);
 }
 
@@ -213,13 +233,14 @@ function showError(message) {
   elements.errorState.querySelector(".error-message").textContent = message;
   elements.errorState.style.display = "block";
   elements.resultsContainer.style.display = "none";
+  elements.emptyState.style.display = "none";
 }
 
 // Toast notification
 function showToast(message) {
   const toast = document.createElement("div");
   toast.className = "toast";
-  toast.textContent = message;
+  toast.innerHTML = `<i class="ti ti-check"></i> ${message}`;
   document.body.appendChild(toast);
 
   setTimeout(() => {
