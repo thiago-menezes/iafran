@@ -55,7 +55,12 @@ Cada categoria deve ter entre 3-5 ganchos.
 
 Ao final, adicione uma dica prática de uso.
 
-IMPORTANTE: Mantenha sempre o foco em autenticidade. O melhor UGC não parece propaganda, parece recomendação genuína de uma amiga.`;
+IMPORTANTE: Mantenha sempre o foco em autenticidade. O melhor UGC não parece propaganda, parece recomendação genuína de uma amiga.
+
+## RESTRIÇÕES DE SAÍDA (MUITO IMPORTANTE)
+- SEMPRE comece direto com o conteúdo. NUNCA use introduções como "Claro! Aqui estão...", "Com certeza!", etc.
+- NUNCA termine com perguntas ou sugestões do tipo "Quer que eu adapte...", "Posso ajudar em algo mais?".
+- Apenas entregue os ganchos organizados e a dica prática final.`;
 
 export default async function handler(req) {
   if (req.method !== "POST") {
