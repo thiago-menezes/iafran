@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roteiros UGC - Gerador Profissional</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="tabler-300.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>
+          <i class="ti ti-movie"></i>
+          Roteiros UGC Profissionais
+        </h1>
+        <p class="subtitle">Crie roteiros completos e prontos para gravação</p>
+        <div style="margin-top: 15px;">
+          <a href="index.html" class="btn-secondary" style="text-decoration: none; display: inline-flex;">
+            <i class="ti ti-arrow-left"></i> Voltar para Ganchos
+          </a>
+        </div>
+      </header>
+
+      <div class="roteiros-layout">
+        <!-- Formulário de Perfil do Creator -->
+        <section class="profile-section">
+          <div class="card">
+            <h2><i class="ti ti-user-circle"></i> Perfil do Creator</h2>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px;">
+              Preencha uma vez e reutilize em todos os roteiros
+            </p>
+
+            <div class="form-group">
+              <label for="creatorNome">Nome do Creator *</label>
+              <div class="input-icon">
+                <i class="ti ti-user"></i>
+                <input
+                  type="text"
+                  id="creatorNome"
+                  placeholder="Ex: Francieli Azevedo"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="creatorEstado">Estado/Região *</label>
+              <div class="input-icon">
+                <i class="ti ti-map-pin"></i>
+                <select id="creatorEstado">
+                  <option value="">Selecione...</option>
+                  <option value="AC">Acre</option>
+                  <option value="AL">Alagoas</option>
+                  <option value="AP">Amapá</option>
+                  <option value="AM">Amazonas</option>
+                  <option value="BA">Bahia</option>
+                  <option value="CE">Ceará</option>
+                  <option value="DF">Distrito Federal</option>
+                  <option value="ES">Espírito Santo</option>
+                  <option value="GO">Goiás</option>
+                  <option value="MA">Maranhão</option>
+                  <option value="MT">Mato Grosso</option>
+                  <option value="MS">Mato Grosso do Sul</option>
+                  <option value="MG">Minas Gerais</option>
+                  <option value="PA">Pará</option>
+                  <option value="PB">Paraíba</option>
+                  <option value="PR">Paraná</option>
+                  <option value="PE">Pernambuco</option>
+                  <option value="PI">Piauí</option>
+                  <option value="RJ">Rio de Janeiro</option>
+                  <option value="RN">Rio Grande do Norte</option>
+                  <option value="RS">Rio Grande do Sul</option>
+                  <option value="RO">Rondônia</option>
+                  <option value="RR">Roraima</option>
+                  <option value="SC">Santa Catarina</option>
+                  <option value="SP">São Paulo</option>
+                  <option value="SE">Sergipe</option>
+                  <option value="TO">Tocantins</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="creatorNicho">Nicho Principal *</label>
+              <div class="input-icon">
+                <i class="ti ti-category"></i>
+                <select id="creatorNicho">
+                  <option value="">Selecione...</option>
+                  <option value="beleza">Beleza & Skincare</option>
+                  <option value="fitness">Fitness & Saúde</option>
+                  <option value="lifestyle">Lifestyle</option>
+                  <option value="tech">Tecnologia</option>
+                  <option value="moda">Moda</option>
+                  <option value="food">Alimentação & Culinária</option>
+                  <option value="casa">Casa & Decoração</option>
+                  <option value="maternidade">Maternidade</option>
+                  <option value="pets">Pets</option>
+                  <option value="viagem">Viagens</option>
+                  <option value="educacao">Educação</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Tom de Voz Natural *</label>
+              <div class="checkbox-group">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="tomVoz" value="amiga" />
+                  <span>Amiga próxima</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="tomVoz" value="expert" />
+                  <span>Expert casual</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="tomVoz" value="mae" />
+                  <span>Mãe prática</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="tomVoz" value="divertida" />
+                  <span>Divertida</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="tomVoz" value="seria" />
+                  <span>Séria/Profissional</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="creatorExpressoes">Expressões que usa</label>
+              <textarea
+                id="creatorExpressoes"
+                rows="2"
+                placeholder='Ex: "juro", "gente", "olha isso", "sério"'
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Cenários Disponíveis</label>
+              <div class="checkbox-group">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="cenarios" value="casa" />
+                  <span>Casa</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="cenarios" value="banheiro" />
+                  <span>Banheiro</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="cenarios" value="parque" />
+                  <span>Parque</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="cenarios" value="academia" />
+                  <span>Academia</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="cenarios" value="cozinha" />
+                  <span>Cozinha</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="cenarios" value="estudio" />
+                  <span>Estúdio</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="creatorInfo">Informações Adicionais</label>
+              <textarea
+                id="creatorInfo"
+                rows="2"
+                placeholder='Ex: "É mãe de 2, faz UGC há 1 ano, público 90% feminino"'
+              ></textarea>
+            </div>
+
+            <button id="saveProfileBtn" class="btn-primary">
+              <i class="ti ti-device-floppy"></i> Salvar Perfil
+            </button>
+          </div>
+        </section>
+
+        <!-- Formulário do Roteiro -->
+        <section class="script-section">
+          <div class="card">
+            <h2><i class="ti ti-script"></i> Dados do Roteiro</h2>
+
+            <div class="form-group">
+              <label for="nomeProduto">Nome do Produto *</label>
+              <div class="input-icon">
+                <i class="ti ti-package"></i>
+                <input
+                  type="text"
+                  id="nomeProduto"
+                  placeholder="Ex: Ollie Protetor Solar Stick FPS 95"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="marca">Marca *</label>
+              <div class="input-icon">
+                <i class="ti ti-brand-producthunt"></i>
+                <input
+                  type="text"
+                  id="marca"
+                  placeholder="Ex: Ollie"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="categoriaProduto">Nicho/Categoria *</label>
+              <div class="input-icon">
+                <i class="ti ti-category"></i>
+                <select id="categoriaProduto">
+                  <option value="">Selecione...</option>
+                  <option value="beleza">Beleza & Skincare</option>
+                  <option value="fitness">Fitness & Saúde</option>
+                  <option value="lifestyle">Lifestyle</option>
+                  <option value="tech">Tecnologia</option>
+                  <option value="moda">Moda</option>
+                  <option value="food">Alimentação & Culinária</option>
+                  <option value="casa">Casa & Decoração</option>
+                  <option value="maternidade">Maternidade</option>
+                  <option value="pets">Pets</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="descricaoProduto">Descrição do Produto *</label>
+              <textarea
+                id="descricaoProduto"
+                rows="3"
+                placeholder="Ex: Protetor solar em bastão com cor, FPS 95, ácido hialurônico, vegano, 15g"
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="beneficios">Benefícios Principais *</label>
+              <textarea
+                id="beneficios"
+                rows="3"
+                placeholder="Ex: Resistente à água, antioxidante, vitamina E, acabamento aveludado"
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="objetivo">Objetivo do Vídeo *</label>
+              <div class="input-icon">
+                <i class="ti ti-target"></i>
+                <select id="objetivo">
+                  <option value="awareness">Awareness (conhecer o produto)</option>
+                  <option value="conversao">Conversão (vender)</option>
+                  <option value="tutorial">Tutorial/Educação</option>
+                  <option value="engajamento">Engajamento</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="duracao">Duração Alvo: <span id="duracaoValue">30</span>s</label>
+              <input
+                type="range"
+                id="duracao"
+                min="15"
+                max="120"
+                value="30"
+                step="5"
+                style="width: 100%; padding: 0;"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="tomRoteiro">Tom Desejado *</label>
+              <div class="input-icon">
+                <i class="ti ti-mood-smile"></i>
+                <select id="tomRoteiro">
+                  <option value="divertido">Divertido</option>
+                  <option value="informativo">Informativo</option>
+                  <option value="emocional">Emocional</option>
+                  <option value="serio">Sério/Profissional</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="tipoHook">Tipo de Hook (opcional)</label>
+              <div class="input-icon">
+                <i class="ti ti-bolt"></i>
+                <select id="tipoHook">
+                  <option value="">Deixar o agente escolher</option>
+                  <option value="curiosidade">Curiosidade</option>
+                  <option value="surpresa">Surpresa/Choque</option>
+                  <option value="provocacao">Provocação</option>
+                  <option value="aposta">Aposta</option>
+                  <option value="segredo">Segredo</option>
+                  <option value="identificacao">Identificação</option>
+                  <option value="resultado">Resultado</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cupom">Cupom/Oferta (opcional)</label>
+              <div class="input-icon">
+                <i class="ti ti-ticket"></i>
+                <input
+                  type="text"
+                  id="cupom"
+                  placeholder="Ex: FRANAZEVEDO10 — 25% OFF + Frete Grátis"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="linkCta">Link/CTA Destino (opcional)</label>
+              <div class="input-icon">
+                <i class="ti ti-link"></i>
+                <input
+                  type="text"
+                  id="linkCta"
+                  placeholder="Ex: Link na bio, Site, Loja física"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="briefing">Briefing da Marca (opcional)</label>
+              <textarea
+                id="briefing"
+                rows="2"
+                placeholder="Instruções específicas, palavras obrigatórias, restrições..."
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="quantidadeRoteiros">Quantidade de Roteiros *</label>
+              <div class="input-icon">
+                <i class="ti ti-files"></i>
+                <select id="quantidadeRoteiros">
+                  <option value="1">1 roteiro</option>
+                  <option value="2">2 roteiros</option>
+                  <option value="3">3 roteiros</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="detalhesAdicionais">Detalhes Adicionais (opcional)</label>
+              <textarea
+                id="detalhesAdicionais"
+                rows="2"
+                placeholder='Ex: "Focar no acabamento aveludado, mostrar antes/depois"'
+              ></textarea>
+            </div>
+
+            <button id="generateBtn" class="btn-primary">
+              <i class="ti ti-wand"></i> Gerar Roteiros
+            </button>
+          </div>
+        </section>
+
+        <!-- Resultados -->
+        <section class="results-section">
+          <!-- Empty State -->
+          <div id="emptyState" class="empty-state">
+            <i class="ti ti-movie empty-icon"></i>
+            <h3>Roteiros prontos para criação...</h3>
+            <p>
+              Preencha o perfil e os dados do roteiro para gerar conteúdo profissional.
+            </p>
+          </div>
+
+          <!-- Loading State -->
+          <div id="loadingState" class="loading-state" style="display: none">
+            <div class="spinner"></div>
+            <p>Criando seus roteiros profissionais...</p>
+          </div>
+
+          <!-- Results Container -->
+          <div
+            id="resultsContainer"
+            class="results-container"
+            style="display: none"
+          >
+            <div class="results-header">
+              <h2><i class="ti ti-list-check"></i> Seus Roteiros</h2>
+              <button id="copyAllBtn" class="btn-secondary">
+                <i class="ti ti-copy"></i> Copiar Tudo
+              </button>
+            </div>
+            <div id="resultsContent" class="results-content roteiros-content"></div>
+          </div>
+
+          <div id="errorState" class="error-state" style="display: none">
+            <i class="ti ti-alert-circle error-icon"></i>
+            <p class="error-message"></p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="roteiros.js"></script>
+  </body>
+</html>
