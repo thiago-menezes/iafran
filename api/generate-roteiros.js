@@ -125,46 +125,47 @@ export default async function handler(req) {
   try {
     const { userPrompt, creatorContext } = await req.json();
 
-    if (!process.env.OPENAI_API_KEY) {
-      throw new Error("OpenAI API Key not configured on server");
+    if (!process.env.GEMINI_API_KEY) {
+      throw new Error("Gemini API Key not configured on server");
     }
 
     // Substituir o placeholder do perfil do creator no system prompt
     const systemPromptWithContext = SYSTEM_PROMPT.replace(
       "{PERFIL_DO_CREATOR}",
-      creatorContext
+      creatorContext,
     );
 
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
+
+    const response = await fetch(geminiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "gpt-4.1-mini-2025-04-14",
-        messages: [
-          {
-            role: "system",
-            content: systemPromptWithContext,
-          },
+        systemInstruction: {
+          parts: [{ text: systemPromptWithContext }],
+        },
+        contents: [
           {
             role: "user",
-            content: userPrompt,
+            parts: [{ text: userPrompt }],
           },
         ],
-        temperature: 0.85,
-        max_tokens: 4000,
+        generationConfig: {
+          temperature: 0.85,
+          maxOutputTokens: 4000,
+        },
       }),
     });
 
     if (!response.ok) {
       const error = await response.json();
-      throw new Error(error.error?.message || "Erro ao chamar API da OpenAI");
+      throw new Error(error.error?.message || "Erro ao chamar API do Gemini");
     }
 
     const data = await response.json();
-    const content = data.choices[0].message.content;
+    const content = data.candidates[0].content.parts[0].text;
 
     return new Response(JSON.stringify({ content }), {
       headers: { "Content-Type": "application/json" },
