@@ -135,7 +135,7 @@ export default async function handler(req) {
       creatorContext,
     );
 
-    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
+    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-preview:generateContent?key=${process.env.GEMINI_API_KEY}`;
 
     const response = await fetch(geminiUrl, {
       method: "POST",
