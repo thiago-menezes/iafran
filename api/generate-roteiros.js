@@ -135,7 +135,7 @@ export default async function handler(req) {
       creatorContext,
     );
 
-    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-preview:generateContent?key=${process.env.GEMINI_API_KEY}`;
+    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
 
     const response = await fetch(geminiUrl, {
       method: "POST",
@@ -155,6 +155,9 @@ export default async function handler(req) {
         generationConfig: {
           temperature: 0.85,
           maxOutputTokens: 4000,
+          thinkingConfig: {
+            thinking_level: "low",
+          },
         },
       }),
     });
